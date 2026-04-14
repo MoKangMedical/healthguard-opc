@@ -14,7 +14,7 @@ import uvicorn
 from app.config import settings
 from app.database import engine, Base, get_db
 from app.models import user, patient, health_record, appointment, medication, device, notification
-from app.routes import auth, patients, health, appointments, medications, dashboard, devices, notifications, reports, export
+from app.routes import auth, patients, health, appointments, medications, dashboard, devices, notifications, reports, export, system
 from app.services.auth import create_access_token, get_current_user
 
 @asynccontextmanager
@@ -58,6 +58,7 @@ app.include_router(devices.router, prefix="/api/devices", tags=["设备管理"])
 app.include_router(notifications.router, prefix="/api/notifications", tags=["通知管理"])
 app.include_router(reports.router, prefix="/api/reports", tags=["健康报告"])
 app.include_router(export.router, prefix="/api/export", tags=["数据导出"])
+app.include_router(system.router, prefix="/api/system", tags=["系统管理"])
 
 @app.get("/", tags=["根路径"])
 async def root():
