@@ -1,11 +1,14 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Badge } from 'antd';
 import {
   DashboardOutlined,
   TeamOutlined,
   HeartOutlined,
   CalendarOutlined,
   MedicineBoxOutlined,
+  MobileOutlined,
+  BellOutlined,
+  FileTextOutlined,
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -41,6 +44,21 @@ const Sidebar: React.FC = () => {
       icon: <MedicineBoxOutlined />,
       label: '用药管理',
     },
+    {
+      key: '/devices',
+      icon: <MobileOutlined />,
+      label: '设备管理',
+    },
+    {
+      key: '/notifications',
+      icon: <BellOutlined />,
+      label: '通知中心',
+    },
+    {
+      key: '/reports',
+      icon: <FileTextOutlined />,
+      label: '健康报告',
+    },
   ];
 
   const handleMenuClick = ({ key }: { key: string }) => {
@@ -60,8 +78,18 @@ const Sidebar: React.FC = () => {
         bottom: 0,
       }}
     >
-      <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span style={{ color: '#fff', fontWeight: 'bold' }}>HealthGuard</span>
+      <div style={{ 
+        height: 64, 
+        margin: 16, 
+        background: 'rgba(255, 255, 255, 0.1)', 
+        borderRadius: 8, 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        flexDirection: 'column',
+      }}>
+        <span style={{ color: '#fff', fontWeight: 'bold', fontSize: 18 }}>HealthGuard</span>
+        <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 12 }}>OPC 健康管理</span>
       </div>
       <Menu
         theme="dark"
