@@ -14,6 +14,14 @@ from app.models.health_record import (
 )
 from app.models.appointment import Appointment, AppointmentStatus
 from app.models.medication import Medication, MedicationReminder, ReminderStatus
+from app.models.device import (
+    Device,
+    DeviceType,
+    DeviceStatus,
+    ConnectionType,
+    DeviceDataRecord,
+    DeviceCommand
+)
 
 __all__ = [
     "User",
@@ -31,4 +39,10 @@ __all__ = [
     "Medication",
     "MedicationReminder",
     "ReminderStatus",
+    "Device",
+    "DeviceType",
+    "DeviceStatus",
+    "ConnectionType",
+    "DeviceDataRecord",
+    "DeviceCommand",
 ]

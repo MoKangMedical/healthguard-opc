@@ -58,6 +58,7 @@ class Patient(Base):
     health_records = relationship("HealthRecord", back_populates="patient")
     appointments = relationship("Appointment", back_populates="patient")
     medications = relationship("Medication", back_populates="patient")
+    devices = relationship("Device", back_populates="patient")
     
     def __repr__(self):
         return f"<Patient(id={self.id}, patient_no='{self.patient_no}')>"

@@ -13,8 +13,8 @@ import uvicorn
 
 from app.config import settings
 from app.database import engine, Base, get_db
-from app.models import user, patient, health_record, appointment, medication
-from app.routes import auth, patients, health, appointments, medications, dashboard
+from app.models import user, patient, health_record, appointment, medication, device
+from app.routes import auth, patients, health, appointments, medications, dashboard, devices
 from app.services.auth import create_access_token, get_current_user
 
 @asynccontextmanager
@@ -54,6 +54,7 @@ app.include_router(health.router, prefix="/api/health", tags=["健康监测"])
 app.include_router(appointments.router, prefix="/api/appointments", tags=["预约管理"])
 app.include_router(medications.router, prefix="/api/medications", tags=["用药管理"])
 app.include_router(dashboard.router, prefix="/api/dashboard", tags=["仪表盘"])
+app.include_router(devices.router, prefix="/api/devices", tags=["设备管理"])
 
 @app.get("/", tags=["根路径"])
 async def root():
