@@ -2,4 +2,4 @@
 路由模块
 """
 
-from app.routes import auth, patients, health, appointments, medications, dashboard, devices, notifications, reports, export, system
+from app.routes import auth, patients, health, appointments, medications, dashboard, devices, notifications, reports, export, system, feishu

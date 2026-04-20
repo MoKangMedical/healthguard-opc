@@ -42,6 +42,14 @@ class Settings(BaseSettings):
     SMTP_USER: str = os.getenv("SMTP_USER", "")
     SMTP_PASSWORD: str = os.getenv("SMTP_PASSWORD", "")
     
+    # 飞书配置
+    FEISHU_APP_ID: str = os.getenv("FEISHU_APP_ID", "")
+    FEISHU_APP_SECRET: str = os.getenv("FEISHU_APP_SECRET", "")
+    FEISHU_DOMAIN: str = os.getenv("FEISHU_DOMAIN", "feishu")
+    FEISHU_CONNECTION_MODE: str = os.getenv("FEISHU_CONNECTION_MODE", "websocket")
+    FEISHU_ALLOWED_USERS: str = os.getenv("FEISHU_ALLOWED_USERS", "")
+    FEISHU_HOME_CHANNEL: str = os.getenv("FEISHU_HOME_CHANNEL", "")
+    
     # 健康数据阈值
     BLOOD_PRESSURE_HIGH: int = 140
     BLOOD_PRESSURE_LOW: int = 90
