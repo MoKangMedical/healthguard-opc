@@ -19,6 +19,14 @@ router = APIRouter()
 # 飞书服务实例
 feishu = FeishuService()
 
+# Verification Token
+VERIFICATION_TOKEN = settings.FEISHU_VERIFICATION_TOKEN if hasattr(settings, 'FEISHU_VERIFICATION_TOKEN') else ""
+
+def verify_feishu_request(body: Dict[str, Any]) -> bool:
+    """验证飞书请求"""
+    token = body.get("token", "")
+    return not VERIFICATION_TOKEN or token == VERIFICATION_TOKEN
+
 @router.get("/status", summary="飞书连接状态")
 async def feishu_status():
     """检查飞书连接状态"""
@@ -36,6 +44,10 @@ async def feishu_webhook(request: Request, db: Session = Depends(get_db)):
     """接收飞书事件回调"""
     
     body = await request.json()
+    
+    # 验证请求来源
+    if not verify_feishu_request(body):
+        raise HTTPException(status_code=403, detail="Invalid verification token")
     
     # 处理 URL 验证请求
     if body.get("type") == "url_verification":

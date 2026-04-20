@@ -47,6 +47,8 @@ class Settings(BaseSettings):
     FEISHU_APP_SECRET: str = os.getenv("FEISHU_APP_SECRET", "")
     FEISHU_DOMAIN: str = os.getenv("FEISHU_DOMAIN", "feishu")
     FEISHU_CONNECTION_MODE: str = os.getenv("FEISHU_CONNECTION_MODE", "websocket")
+    FEISHU_VERIFICATION_TOKEN: str = os.getenv("FEISHU_VERIFICATION_TOKEN", "")
+    FEISHU_ENCRYPT_KEY: str = os.getenv("FEISHU_ENCRYPT_KEY", "")
     FEISHU_ALLOWED_USERS: str = os.getenv("FEISHU_ALLOWED_USERS", "")
     FEISHU_HOME_CHANNEL: str = os.getenv("FEISHU_HOME_CHANNEL", "")
     
