@@ -113,3 +113,8 @@ healthguard-opc/
 ---
 
 **HealthGuard OPC** - 让健康管理更简单、更智能 🏥💚
+## 📐 理论基础
+
+> **Harness理论**：在AI领域，Harness（环境设计）比模型本身更重要。优秀的Harness设计能使性能提升64%。
+
+> **红杉论点**：从卖工具到卖结果。
