@@ -18,7 +18,7 @@ flower==2.0.1
 psutil==5.9.6
 
 # 飞书集成
-lark-oapi==1.2.4
+lark-oapi==1.5.5
 
 # 硬件设备对接
 bleak==0.21.0           # 蓝牙 BLE 通信
