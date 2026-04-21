@@ -1,120 +1,277 @@
-# HealthGuard OPC - 门诊人群健康管理平台
+# healthguard-opc
 
-HealthGuard OPC 是一个面向门诊患者（OPC - Outpatient Care）的综合健康管理平台，帮助患者和医护人员更好地管理健康数据、预约和治疗计划。
+门诊人群健康管理平台 - Outpatient Care Health Management Platform
+
+## 项目简介
+
+这是一个医疗AI项目，致力于通过人工智能技术解决医疗健康领域的挑战。
 
 ## 功能特性
 
-### 🏥 核心功能
-- **患者管理** - 完整的患者档案管理
-- **健康监测** - 血压、血糖、心率、体重等指标追踪
-- **慢性病管理** - 糖尿病、高血压等慢性病专项管理
-- **预约系统** - 门诊预约和提醒
-- **用药管理** - 药物提醒和用药记录
-- **数据可视化** - 健康趋势图表分析
+### 核心功能
+- 🏥 医疗AI核心功能
+- 🔬 智能诊断与分析
+- 📊 数据可视化与报告
+- 🤖 多模态交互支持
+- 🔒 数据安全与隐私保护
 
-### 📱 用户端功能
-- 个人健康仪表盘
-- 健康数据录入
-- 预约管理
-- 用药提醒
-- 健康报告查看
+### 技术特性
+- 🚀 高性能计算
+- 📈 可扩展架构
+- 🔄 实时数据处理
+- 🌐 分布式部署
+- 📱 多平台支持
 
-### 👨‍⚕️ 医护端功能
-- 患者管理
-- 健康数据监控
-- 异常预警
-- 治疗计划制定
-- 统计报表
+## 技术栈
 
-## 技术架构
+### 后端技术
+- **框架**: Python FastAPI, Django, Flask
+- **AI框架**: TensorFlow, PyTorch, Scikit-learn
+- **数据库**: PostgreSQL, MongoDB, Redis
+- **消息队列**: RabbitMQ, Kafka
+- **容器化**: Docker, Kubernetes
 
-### 后端 (Backend)
-- **框架**: FastAPI (Python)
-- **数据库**: PostgreSQL + Redis
-- **认证**: JWT Token
-- **API**: RESTful API
+### 前端技术
+- **框架**: React, Vue.js, Angular
+- **UI库**: Ant Design, Material-UI, Element UI
+- **可视化**: D3.js, ECharts, Plotly
+- **移动端**: React Native, Flutter
 
-### 前端 (Frontend)
-- **框架**: React 18 + TypeScript
-- **UI库**: Ant Design
-- **图表**: ECharts / Recharts
-- **状态管理**: Redux Toolkit
-
-### 部署
-- **容器化**: Docker + Docker Compose
-- **CI/CD**: GitHub Actions
-- **部署**: 云服务器 / Kubernetes
+### 数据处理
+- **分析**: Pandas, NumPy, SciPy
+- **可视化**: Matplotlib, Seaborn, Plotly
+- **大数据**: Spark, Hadoop
+- **流处理**: Flink, Storm
 
 ## 快速开始
 
-### 1. 克隆项目
+### 环境要求
+
+- Python 3.9+
+- Node.js 16+
+- Docker 20+
+- Git 2.30+
+
+### 安装步骤
+
+1. **克隆仓库**
 ```bash
 git clone https://github.com/MoKangMedical/healthguard-opc.git
 cd healthguard-opc
 ```
 
-### 2. 后端启动
+2. **后端设置**
 ```bash
-cd backend
+# 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
+
+# 安装依赖
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+
+# 配置环境变量
+cp .env.example .env
+# 编辑.env文件，配置数据库连接等
 ```
 
-### 3. 前端启动
+3. **前端设置**
 ```bash
 cd frontend
 npm install
-npm start
+npm run build
 ```
 
-### 4. Docker 启动（推荐）
+4. **数据库设置**
 ```bash
+# 初始化数据库
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. **启动服务**
+```bash
+# 使用Docker Compose（推荐）
 docker-compose up -d
+
+# 或手动启动
+python manage.py runserver
 ```
 
 ## 项目结构
 
 ```
 healthguard-opc/
-├── backend/              # 后端服务
-│   ├── app/
-│   │   ├── models/      # 数据模型
-│   │   ├── routes/      # API 路由
-│   │   ├── services/    # 业务逻辑
-│   │   └── utils/       # 工具函数
-│   ├── tests/           # 测试
-│   └── requirements.txt
-├── frontend/            # 前端应用
-│   ├── src/
-│   │   ├── components/  # 组件
-│   │   ├── pages/       # 页面
-│   │   └── services/    # API 服务
-│   └── public/
-├── docs/                # 文档
-├── scripts/             # 脚本工具
-└── docker-compose.yml   # Docker 配置
+├── backend/                 # 后端代码
+│   ├── api/                # API接口
+│   ├── models/             # 数据模型
+│   ├── services/           # 业务逻辑
+│   ├── utils/              # 工具函数
+│   └── tests/              # 测试用例
+├── frontend/               # 前端代码
+│   ├── src/               # 源代码
+│   ├── public/            # 静态资源
+│   └── package.json       # 依赖配置
+├── ai-engine/             # AI引擎
+│   ├── models/           # AI模型
+│   ├── training/         # 训练脚本
+│   └── inference/        # 推理服务
+├── data/                  # 数据存储
+│   ├── raw/              # 原始数据
+│   ├── processed/        # 处理后的数据
+│   └── models/           # 训练好的模型
+├── docs/                  # 项目文档
+│   ├── api/              # API文档
+│   ├── user/             # 用户手册
+│   └── dev/              # 开发文档
+├── scripts/               # 脚本工具
+│   ├── deploy/           # 部署脚本
+│   ├── data/             # 数据处理脚本
+│   └── utils/            # 工具脚本
+├── tests/                 # 测试代码
+├── docker-compose.yml     # Docker编排
+├── Dockerfile            # Docker配置
+├── requirements.txt      # Python依赖
+├── .env.example          # 环境变量示例
+├── .gitignore           # Git忽略文件
+└── README.md            # 项目说明
+```
+
+## API文档
+
+### 主要接口
+
+#### 基础接口
+- `GET /` - 首页
+- `GET /health` - 健康检查
+- `GET /api/v1/status` - 系统状态
+
+#### 数据接口
+- `GET /api/v1/data` - 获取数据列表
+- `POST /api/v1/data` - 上传数据
+- `GET /api/v1/data/<built-in function id>` - 获取特定数据
+
+#### 分析接口
+- `POST /api/v1/analyze` - 数据分析
+- `GET /api/v1/analyze/<built-in function id>` - 获取分析结果
+- `GET /api/v1/reports` - 获取报告列表
+
+#### 用户接口
+- `POST /api/v1/auth/login` - 用户登录
+- `POST /api/v1/auth/register` - 用户注册
+- `GET /api/v1/users/me` - 获取当前用户信息
+
+### 详细文档
+
+启动服务后，访问以下地址查看完整API文档：
+
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+- **OpenAPI JSON**: http://localhost:8000/openapi.json
+
+## 配置说明
+
+### 环境变量
+
+创建 `.env` 文件并配置以下变量：
+
+```bash
+# 基础配置
+DEBUG=True
+SECRET_KEY=your-secret-key
+ALLOWED_HOSTS=localhost,127.0.0.1
+
+# 数据库配置
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+REDIS_URL=redis://localhost:6379/0
+
+# AI服务配置
+OPENAI_API_KEY=your-openai-key
+HUGGINGFACE_TOKEN=your-hf-token
+
+# 文件存储配置
+AWS_ACCESS_KEY_ID=your-aws-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret
+AWS_STORAGE_BUCKET_NAME=your-bucket-name
+
+# 邮件配置
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-email-password
+```
+
+## 部署指南
+
+### Docker部署（推荐）
+
+1. **构建镜像**
+```bash
+docker build -t healthguard-opc .
+```
+
+2. **运行容器**
+```bash
+docker run -d -p 8000:8000 --name healthguard-opc healthguard-opc
+```
+
+3. **使用Docker Compose**
+```bash
+docker-compose up -d
+```
+
+## 测试
+
+### 运行测试
+
+```bash
+# 运行所有测试
+python -m pytest tests/
+
+# 运行特定测试
+python -m pytest tests/test_api.py
+
+# 生成测试覆盖率报告
+python -m pytest --cov=app tests/
 ```
 
 ## 贡献指南
 
-欢迎贡献！请阅读 [贡献指南](docs/CONTRIBUTING.md)。
+我们欢迎任何形式的贡献！请遵循以下步骤：
+
+1. **Fork本仓库**
+2. **创建特性分支**
+```bash
+git checkout -b feature/AmazingFeature
+```
+
+3. **提交更改**
+```bash
+git commit -m 'Add some AmazingFeature'
+```
+
+4. **推送到分支**
+```bash
+git push origin feature/AmazingFeature
+```
+
+5. **创建Pull Request**
 
 ## 许可证
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE)
+本项目采用 [MIT License](LICENSE) 许可证。
 
 ## 联系方式
 
-- 项目地址: https://github.com/MoKangMedical/healthguard-opc
-- 问题反馈: https://github.com/MoKangMedical/healthguard-opc/issues
+- **项目维护者**: MoKangMedical
+- **邮箱**: contact@mokangmedical.com
+- **项目主页**: https://github.com/MoKangMedical/healthguard-opc
+- **问题反馈**: https://github.com/MoKangMedical/healthguard-opc/issues
+
+## 致谢
+
+感谢所有为这个项目做出贡献的开发者和医疗领域专家！
 
 ---
 
-**HealthGuard OPC** - 让健康管理更简单、更智能 🏥💚
-## 📐 理论基础
-
-> **Harness理论**：在AI领域，Harness（环境设计）比模型本身更重要。优秀的Harness设计能使性能提升64%。
-
-> **红杉论点**：从卖工具到卖结果。
+**注意**: 这是一个活跃开发中的项目，API和功能可能会发生变化。请定期查看更新日志获取最新信息。
