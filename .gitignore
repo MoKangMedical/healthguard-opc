@@ -78,4 +78,7 @@ coverage.xml
 .mypy_cache/
 
 # React
-/frontend/build
+/frontend/build*.key
+*.pem
+*_secret*
+credentials.json
