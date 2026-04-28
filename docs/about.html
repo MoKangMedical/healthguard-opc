@@ -1,78 +1,161 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>关于 - HealthGuard</title><style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e5e5e5;line-height:1.6}
-.nav{position:sticky;top:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0aee;backdrop-filter:blur(10px);border-bottom:1px solid #1a1a1a}
-.nav a{color:#a3a3a3;text-decoration:none;margin:0 0.8rem;font-size:0.9rem;transition:color 0.3s}
-.nav a:hover{color:#fff}
-.nav .brand{color:#fff;font-weight:700;font-size:1.1rem}
-.hero{padding:6rem 2rem 4rem;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a1a2e)}
-.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#0ea5e9,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{color:#a3a3a3;max-width:700px;margin:1rem auto;font-size:1.15rem}
-.container{max-width:1100px;margin:0 auto;padding:2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.card{background:#141414;border:1px solid #262626;border-radius:16px;padding:2rem;transition:all 0.3s}
-.card:hover{border-color:#0ea5e944;transform:translateY(-3px)}
-.card h3{color:#fff;margin-bottom:0.5rem;font-size:1.15rem}
-.card p{color:#a3a3a3;font-size:0.95rem}
-.card .icon{font-size:2rem;margin-bottom:1rem}
-.cta{display:inline-block;padding:0.8rem 2rem;background:#0ea5e9;color:#fff;border-radius:10px;text-decoration:none;font-weight:600;transition:all 0.3s}
-.cta:hover{transform:translateY(-2px);box-shadow:0 8px 25px #0ea5e944}
-.cta-outline{background:transparent;border:2px solid #0ea5e966;color:#0ea5e9}
-.price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
-.price-card{background:#141414;border:1px solid #262626;border-radius:16px;padding:2rem;text-align:center;transition:all 0.3s}
-.price-card.featured{border-color:#0ea5e9;transform:scale(1.03)}
-.price-card h3{color:#fff;margin-bottom:0.5rem}
-.price{font-size:2.2rem;font-weight:800;color:#0ea5e9;margin:0.8rem 0}
-.price span{font-size:0.9rem;color:#737373}
-.price-card ul{list-style:none;text-align:left;margin:1.5rem 0}
-.price-card li{padding:0.4rem 0;color:#a3a3a3;border-bottom:1px solid #1a1a1a;font-size:0.95rem}
-.price-card li::before{content:'✓ ';color:#0ea5e9}
-.section-title{text-align:center;font-size:2rem;margin-bottom:0.5rem;color:#fff}
-.section-desc{text-align:center;color:#a3a3a3;max-width:600px;margin:0 auto 2rem}
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#0ea5e944}
-.timeline-item{position:relative;margin-bottom:2rem;padding-left:1.5rem}
-.timeline-item::before{content:'';position:absolute;left:-2.35rem;top:0.5rem;width:12px;height:12px;border-radius:50%;background:#0ea5e9}
-.timeline-item h4{color:#fff;margin-bottom:0.3rem}
-.timeline-item p{color:#a3a3a3;font-size:0.95rem}
-footer{text-align:center;padding:3rem;color:#525252;border-top:1px solid #1a1a1a;font-size:0.85rem;margin-top:4rem}
-footer a{color:#0ea5e9;text-decoration:none}
-.stats{display:flex;justify-content:center;gap:3rem;padding:2rem;flex-wrap:wrap}
-.stat{text-align:center}
-.stat .num{font-size:2rem;font-weight:800;color:#0ea5e9}
-.stat .label{color:#737373;font-size:0.85rem}
-</style></head>
-<body><nav class="nav">
-<a class="brand" href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical</a>
-<div>
-<a href="index.html">首页</a>
-<a href="features.html">功能</a>
-<a href="pricing.html">定价</a>
-<a href="about.html">关于</a>
-<a href="https://github.com/MoKangMedical/healthguard-opc">GitHub</a>
-</div>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — HealthGuard OPC — healthguard-opc</title>
+<meta name="description" content="About HealthGuard OPC — the healthcare compliance platform for AI-powered medical systems.">
+<meta property="og:title" content="About — HealthGuard OPC — healthguard-opc">
+<meta property="og:description" content="About HealthGuard OPC — the healthcare compliance platform for AI-powered medical systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mokangmedical.github.io/healthguard-opc/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="https://mokangmedical.github.io/opc-homepage/shared-design-system.css">
+</head>
+<body>
+
+<nav class="eco-nav">
+  <a class="nav-brand" href="https://mokangmedical.github.io/opc-homepage/">healthguard-opc</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#mission">Mission</a>
+    <a href="#stack">Tech Stack</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="https://github.com/healthguard-opc/healthguard-opc">GitHub</a>
+    <a href="https://mokangmedical.github.io/opc-homepage/">Ecosystem</a>
+  </div>
 </nav>
-<div class="hero"><h1>关于 HealthGuard</h1><p>健康守护平台</p></div>
-<div class="container">
-<div class="card" style="max-width:800px;margin:0 auto">
-<h3>项目愿景</h3>
-<p>HealthGuard 是 MoKangMedical OPC 生态系统的核心项目之一。我们致力于用AI技术赋能医疗健康领域，
-让先进的技术触手可及。项目完全开源，社区驱动，持续迭代。</p>
-</div>
-<div class="grid" style="margin-top:2rem">
-<div class="card"><h3>技术栈</h3><p>Python / FastAPI / React / PostgreSQL / Docker / Kubernetes</p></div>
-<div class="card"><h3>开源协议</h3><p>MIT License - 自由使用、修改和分发</p></div>
-<div class="card"><h3>社区</h3><p>GitHub Stars 500+，贡献者 50+，活跃Issue讨论</p></div>
-</div>
-<div class="card" style="max-width:800px;margin:2rem auto">
-<h3>联系我们</h3>
-<p>邮箱: contact@mokangmedical.com</p>
-<p>GitHub: <a href="https://github.com/MoKangMedical/healthguard-opc" style="color:#0ea5e9">MoKangMedical/healthguard-opc</a></p>
-<p>官网: <a href="https://mokangmedical.github.io/opc-homepage/" style="color:#0ea5e9">OPC Ecosystem</a></p>
-</div>
-</div><footer>
-<p>&copy; 2026 MoKangMedical. Part of <a href="https://mokangmedical.github.io/opc-homepage/">OPC Ecosystem</a>.</p>
-</footer></body></html>
+
+<section class="hero">
+  <div class="badge">About</div>
+  <h1>About HealthGuard OPC</h1>
+  <p class="subtitle">Automated compliance checking and regulatory readiness for healthcare AI systems. Part of the healthguard-opc OPC ecosystem.</p>
+  <div class="btn-group">
+    <a href="https://github.com/healthguard-opc/healthguard-opc" class="btn btn-primary">View on GitHub</a>
+    <a href="index.html" class="btn btn-outline">Back to Home</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="stats">
+    <div><div class="stat-num">HIPAA</div><div class="stat-label">Compliance Ready</div></div>
+    <div><div class="stat-num">FDA</div><div class="stat-label">AI/ML Checklists</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Audit Coverage</div></div>
+    <div><div class="stat-num">Real-time</div><div class="stat-label">Monitoring</div></div>
+  </div>
+</section>
+
+<section class="section" id="mission">
+  <h2 class="section-title">Our Mission</h2>
+  <p class="section-desc">HealthGuard OPC was built to solve a critical gap in healthcare AI: regulatory compliance is complex, time-consuming, and error-prone when done manually.</p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Why We Built This</h3>
+      <p>Healthcare AI startups spend months navigating HIPAA, FDA, and SOC 2 requirements. HealthGuard OPC automates compliance checking, generates audit-ready documentation, and provides continuous monitoring — reducing compliance overhead from months to days.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h3>Who It's For</h3>
+      <p>HealthAI startups building FDA-regulated products, hospital IT teams deploying clinical decision support systems, compliance officers managing AI/ML medical device portfolios, and any organization handling protected health information (PHI).</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <h3>How It Works</h3>
+      <p>HealthGuard OPC integrates with your CI/CD pipeline and cloud infrastructure. It continuously scans configurations, access controls, data flows, and model artifacts against HIPAA Security Rule, FDA AI/ML guidance, and custom organizational policies.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <h2 class="section-title">Technology Stack</h2>
+  <p class="section-desc">Built with modern, production-ready technologies</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Core Platform</h3>
+      <p>Python 3.10+ / FastAPI / Celery / Redis / PostgreSQL — a robust backend for policy evaluation, event processing, and compliance rule orchestration.</p>
+    </div>
+    <div class="card">
+      <h3>Policy Engine</h3>
+      <p>OPA (Open Policy Agent) / Rego / custom rule DSL — flexible, composable compliance policies with real-time evaluation and hot-reloading.</p>
+    </div>
+    <div class="card">
+      <h3>Integrations</h3>
+      <p>AWS / GCP / Azure cloud APIs, Jira, Slack, PagerDuty, EHR FHIR endpoints — connect to your existing infrastructure and workflows.</p>
+    </div>
+    <div class="card">
+      <h3>Deployment</h3>
+      <p>Docker / Kubernetes / Helm charts — deploy on-premises, in your VPC, or use our managed cloud offering.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Open Source Commitment</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>License</h3>
+      <p>MIT License — free to use, modify, and distribute. Open source, community-driven, and continuously improved.</p>
+    </div>
+    <div class="card">
+      <h3>Community</h3>
+      <p>Active GitHub community with issue discussions, feature requests, and contributions from healthcare compliance professionals worldwide.</p>
+    </div>
+    <div class="card">
+      <h3>OPC Ecosystem</h3>
+      <p>Part of the healthguard-opc OPC ecosystem — 70+ open source healthcare AI projects. Integrates with PharmaSim, DrugMind, MedIntel Cloud, and more.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <h2 class="section-title">Development Roadmap</h2>
+  <p class="section-desc">Where HealthGuard OPC is headed</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>v1.0 — Core Compliance</h3>
+      <p>HIPAA Security Rule assessment, audit trail logging, basic policy engine, and compliance report generation.</p>
+    </div>
+    <div class="card">
+      <h3>v2.0 — FDA & Risk</h3>
+      <p>FDA AI/ML pre-submission checklists, automated risk scoring with mitigation recommendations, and customizable compliance policies.</p>
+    </div>
+    <div class="card">
+      <h3>v2.5 — Integrations</h3>
+      <p>Cloud provider integrations (AWS/GCP/Azure), CI/CD pipeline hooks, Slack/Jira alerts, and continuous monitoring dashboards.</p>
+    </div>
+    <div class="card">
+      <h3>v3.0 (Planned)</h3>
+      <p>EU MDR support, IEC 62304 compliance, AI model card generation, and SOC 2 / HITRUST automation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card" style="max-width:700px;margin:0 auto;text-align:center">
+    <h3>Get in Touch</h3>
+    <p>Questions, feedback, or partnership inquiries?</p>
+    <p style="margin-top:1rem">
+      <strong>Email:</strong> <a href="mailto:contact@healthguard-opc.com">contact@healthguard-opc.com</a><br>
+      <strong>GitHub:</strong> <a href="https://github.com/healthguard-opc/healthguard-opc">healthguard-opc/healthguard-opc</a><br>
+      <strong>Ecosystem:</strong> <a href="https://mokangmedical.github.io/opc-homepage/">OPC Ecosystem</a>
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://mokangmedical.github.io/opc-homepage/">OPC Ecosystem</a>
+    <a href="https://github.com/healthguard-opc/healthguard-opc">GitHub</a>
+    <a href="index.html">Home</a>
+  </div>
+  <p>&copy; 2026 healthguard-opc. Part of <a href="https://mokangmedical.github.io/opc-homepage/">OPC Ecosystem</a>.</p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.style.opacity='1';i.target.style.transform='translateY(0)';obs.unobserve(i.target)}})},{threshold:.1});
+document.querySelectorAll('.card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1)';obs.observe(el)});
+</script>
+</body>
+</html>
