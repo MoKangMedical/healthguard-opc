@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthGuard OPC — 门诊人群健康管理平台</title>
+<meta name="description" content="AI驱动的门诊人群健康管理系统。风险分层、干预方案、效果追踪、MDT协作、HIS对接，一站式门诊健康管理解决方案。">
+<meta property="og:title" content="HealthGuard OPC — 门诊人群健康管理平台">
+<meta property="og:description" content="输入患者数据，输出风险分层+干预方案+效果追踪">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1a;--bg2:#111827;--bg3:#1a2332;--card:#1e293b;--text:#f1f5f9;--text2:#94a3b8;--accent:#10b981;--accent2:#059669;--blue:#3b82f6;--purple:#8b5cf6;--amber:#f59e0b;--red:#ef4444;--border:#334155;--radius:12px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,26,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav .inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1200px;margin:0 auto}
+nav .logo{font-size:20px;font-weight:700;color:var(--accent)}
+nav .links{display:flex;gap:28px}
+nav .links a{font-size:14px;color:var(--text2);transition:.2s}
+nav .links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{padding:140px 0 80px;text-align:center;background:linear-gradient(180deg,#0a0f1a 0%,#0f172a 50%,#0a0f1a 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(16,185,129,.08) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(2.5rem,5vw,3.8rem);font-weight:800;line-height:1.2;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.15rem;color:var(--text2);max-width:640px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:var(--radius);font-weight:600;font-size:15px;transition:.3s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,.3)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:60px 0}
+.stat{text-align:center;padding:28px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border)}
+.stat .num{font-size:2.5rem;font-weight:800;color:var(--accent)}
+.stat .label{font-size:.85rem;color:var(--text2);margin-top:6px}
+
+/* Features */
+.section{padding:80px 0}
+.section-title{text-align:center;margin-bottom:48px}
+.section-title h2{font-size:2rem;font-weight:700;margin-bottom:12px}
+.section-title p{color:var(--text2);max-width:600px;margin:0 auto}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.feature{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:.3s}
+.feature:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.feature .icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;background:rgba(16,185,129,.1)}
+.feature h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.feature p{font-size:.9rem;color:var(--text2);line-height:1.6}
+
+/* Workflow */
+.workflow{display:flex;flex-direction:column;gap:0;max-width:700px;margin:0 auto}
+.step{display:flex;gap:24px;position:relative;padding-bottom:40px}
+.step::before{content:'';position:absolute;left:23px;top:48px;bottom:0;width:2px;background:var(--border)}
+.step:last-child::before{display:none}
+.step .dot{width:48px;height:48px;min-width:48px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff}
+.step .content h3{font-size:1.1rem;font-weight:600;margin-bottom:6px}
+.step .content p{color:var(--text2);font-size:.9rem}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:960px;margin:0 auto}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:36px;text-align:center;transition:.3s;position:relative}
+.price-card.popular{border-color:var(--accent);box-shadow:0 0 40px rgba(16,185,129,.15)}
+.price-card.popular::before{content:'推荐';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:4px 16px;border-radius:20px;font-size:.75rem;font-weight:600}
+.price-card h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.price-card .price{font-size:2.2rem;font-weight:800;margin:16px 0}
+.price-card .price span{font-size:.9rem;font-weight:400;color:var(--text2)}
+.price-card ul{list-style:none;text-align:left;margin:20px 0}
+.price-card li{padding:8px 0;font-size:.9rem;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.05)}
+.price-card li::before{content:'✓ ';color:var(--accent);font-weight:600}
+
+/* CTA */
+.cta{text-align:center;padding:80px 0;background:linear-gradient(180deg,transparent,rgba(16,185,129,.05),transparent)}
+.cta h2{font-size:2rem;font-weight:700;margin-bottom:16px}
+.cta p{color:var(--text2);margin-bottom:32px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color:var(--text3);font-size:.85rem}
+footer a{color:var(--text2);margin:0 12px}
+footer a:hover{color:var(--accent)}
+
+/* Mobile */
+@media(max-width:768px){
+  nav .links{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">❤️ HealthGuard OPC</a>
+    <div class="links">
+      <a href="#features">核心功能</a>
+      <a href="#workflow">工作流程</a>
+      <a href="#pricing">定价</a>
+      <a href="https://github.com/MoKangMedical/healthguard-opc">GitHub</a>
+      <a href="https://mokangmedical.github.io/opc-homepage/">生态首页</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>门诊人群健康管理平台</h1>
+    <p class="sub">不卖门诊管理工具，卖门诊人群的健康管理结果。输入患者数据，输出风险分层+干预方案+效果追踪。</p>
+    <div class="hero-btns">
+      <a href="#features" class="btn btn-primary">了解核心功能</a>
+      <a href="https://github.com/MoKangMedical/healthguard-opc" class="btn btn-outline">GitHub 仓库</a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="stats">
+    <div class="stat"><div class="num">5</div><div class="label">核心功能模块</div></div>
+    <div class="stat"><div class="num">12</div><div class="label">风险评估维度</div></div>
+    <div class="stat"><div class="num">40+</div><div class="label">临床指南集成</div></div>
+    <div class="stat"><div class="num">24/7</div><div class="label">自动化随访</div></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>五大核心功能</h2>
+      <p>从数据采集到效果评估，覆盖门诊健康管理全流程</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">📊</div>
+        <h3>风险分层</h3>
+        <p>基于多维度健康数据的智能风险评估。整合年龄、病史、检验指标、生活方式等12个维度，自动将患者分为低/中/高/极高风险四个层级。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💊</div>
+        <h3>干预方案</h3>
+        <p>基于最新临床指南的个性化干预建议。覆盖用药方案、生活方式调整、复查计划、转诊建议，确保每个患者获得循证医学支持的最佳方案。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📈</div>
+        <h3>效果追踪</h3>
+        <p>自动化随访+效果评估系统。定期发送随访提醒，收集患者反馈，生成效果报告，支持趋势分析和异常预警。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">👥</div>
+        <h3>MDT协作</h3>
+        <p>多学科在线协作平台。支持内科、外科、护理、营养、心理等多学科团队在线讨论，共享患者资料，协同制定治疗方案。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔗</div>
+        <h3>HIS对接</h3>
+        <p>无缝对接医院信息系统。支持HL7/FHIR标准协议，自动同步患者基本信息、检验结果、处方记录，消除信息孤岛。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🤖</div>
+        <h3>AI辅助决策</h3>
+        <p>基于大语言模型的智能诊疗建议。自动分析病历、检索最新文献、推荐检查方案，辅助医生做出更精准的临床决策。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="workflow" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-title">
+      <h2>工作流程</h2>
+      <p>从患者入院到健康管理闭环的完整流程</p>
+    </div>
+    <div class="workflow">
+      <div class="step"><div class="dot">1</div><div class="content"><h3>患者数据采集</h3><p>对接HIS系统自动获取患者基本信息、病史、检验结果；支持手动录入和问卷采集补充数据。</p></div></div>
+      <div class="step"><div class="dot">2</div><div class="content"><h3>AI风险评估</h3><p>基于12维度评估模型，综合分析患者健康状况，自动生成风险评分和分层结果。</p></div></div>
+      <div class="step"><div class="dot">3</div><div class="content"><h3>个性化干预方案</h3><p>根据风险分层和临床指南，自动生成个性化干预方案，包括用药、生活方式、复查计划。</p></div></div>
+      <div class="step"><div class="dot">4</div><div class="content"><h3>MDT团队协作</h3><p>高风险患者自动触发MDT讨论，多学科专家在线协作，优化治疗方案。</p></div></div>
+      <div class="step"><div class="dot">5</div><div class="content"><h3>效果追踪与闭环</h3><p>自动化随访收集反馈，持续监测指标变化，评估干预效果，动态调整方案。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-title">
+      <h2>定价方案</h2>
+      <p>灵活的定价策略，满足不同规模医疗机构需求</p>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>社区诊所版</h3>
+        <div class="price">¥999<span>/月</span></div>
+        <ul>
+          <li>最多200名患者管理</li>
+          <li>基础风险分层</li>
+          <li>标准化干预方案</li>
+          <li>自动化随访</li>
+          <li>基础报表</li>
+        </ul>
+        <a href="https://github.com/MoKangMedical/healthguard-opc" class="btn btn-outline" style="width:100%;justify-content:center">开始使用</a>
+      </div>
+      <div class="price-card popular">
+        <h3>综合医院版</h3>
+        <div class="price">¥4,999<span>/月</span></div>
+        <ul>
+          <li>无限患者管理</li>
+          <li>AI风险分层+预测</li>
+          <li>个性化干预方案</li>
+          <li>MDT协作平台</li>
+          <li>HIS系统对接</li>
+          <li>高级数据分析</li>
+        </ul>
+        <a href="https://github.com/MoKangMedical/healthguard-opc" class="btn btn-primary" style="width:100%;justify-content:center">立即升级</a>
+      </div>
+      <div class="price-card">
+        <h3>医疗集团版</h3>
+        <div class="price">定制<span></span></div>
+        <ul>
+          <li>多院区统一管理</li>
+          <li>私有化部署</li>
+          <li>定制化功能开发</li>
+          <li>专属技术支持</li>
+          <li>SLA保障</li>
+        </ul>
+        <a href="https://github.com/MoKangMedical/healthguard-opc" class="btn btn-outline" style="width:100%;justify-content:center">联系销售</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>让每一位患者都获得最佳健康管理</h2>
+    <p>AI驱动的门诊人群健康管理，从风险分层到效果追踪的完整闭环</p>
+    <a href="https://github.com/MoKangMedical/healthguard-opc" class="btn btn-primary">立即开始</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:12px">❤️ HealthGuard OPC — 门诊人群健康管理平台</p>
+    <p>
+      <a href="https://github.com/MoKangMedical/healthguard-opc">GitHub</a>
+      <a href="https://mokangmedical.github.io/opc-homepage/">MoKangMedical生态</a>
+      <a href="https://mokangmedical.github.io/tianyan/">天眼</a>
+      <a href="https://mokangmedical.github.io/chronicdiseasemanagement/">慢康智枢</a>
+    </p>
+    <p style="margin-top:12px">© 2026 MoKangMedical. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
