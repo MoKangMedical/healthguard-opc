@@ -15,7 +15,7 @@ celery==5.3.4
 flower==2.0.1
 
 # 系统监控
-psutil==5.9.6
+psutil==7.2.2
 
 # 飞书集成
 lark-oapi==1.2.4
