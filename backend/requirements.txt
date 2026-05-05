@@ -21,7 +21,7 @@ psutil==5.9.6
 lark-oapi==1.2.4
 
 # 硬件设备对接
-bleak==0.21.0           # 蓝牙 BLE 通信
+bleak==3.0.2           # 蓝牙 BLE 通信
 pyserial==3.5           # 串口通信
 paho-mqtt==1.6.1        # MQTT 协议 (IoT 设备)
 
